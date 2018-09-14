@@ -1,1 +1,9 @@
 Place the contents of your <name>Profile.txt here.
+
+------
+
+me: Austin Martinez 
+
+* hobby: Arts/Music
+
+* something interesting about yourself: Once I stayed up for 68 hours.
