@@ -18,12 +18,8 @@ name: Jashmae Baculpo
 
 ------
 
-This my Garred's document which is all about Garred.
+name: Garred Murphy
 
-Garred pationately hates social interaction.
+* hobby: playing video games
 
-Garred is great at math and logic.
-
-Garred has a big imagination.
-
-Garred is very frustrated all the time.
+* something interesting about yourself: Garred pationately hates social interaction.  Garred is great at math and logic.  Garred has a big imagination.  Garred is very frustrated all the time.
