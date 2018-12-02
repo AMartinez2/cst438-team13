@@ -1,3 +1,10 @@
 <p>
-  robot-details works!
+  {{ robot$['name'] }}
+<br>
+  ${{ robot$['price'] }}
 </p>
+
+<form (submit)="updateCart(robot$['name'], $event)">
+    <input type="text" id="amount" value='1'>
+    <button type="submit" value="Submit" color="primary">Add to cart</button>
+</form>
