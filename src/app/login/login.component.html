@@ -1,3 +1,16 @@
-<p>
-  login works!
-</p>
+<div class="signin-box">
+    <div class="signin-title">
+      <h1>Sign In</h1>
+    </div>
+    <p>
+      login with either username: bill, or username: temp. Password verification is not hooked up for development
+    </p>
+    <div class="signin-input">
+      <form (submit)="loginAttempt($event)">
+        <input type="text" id="username" placeholder="Username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password" placeholder="Password">
+        <button type="submit" value="Submit" color="primary">Login</button>
+      </form>
+    </div>
+
+  </div>

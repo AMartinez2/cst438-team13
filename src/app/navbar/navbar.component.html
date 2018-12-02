@@ -1,3 +1,6 @@
-<p>
-  navbar works!
-</p>
+<div *ngIf="nav.visible">
+  <a routerLink="robots">Robots</a>
+  <br>
+  <a routerLink="checkout">Checkout</a>
+  <button (click)="logOut()">Logout</button>
+</div>

@@ -1,3 +1,18 @@
-<p>
-  checkout works!
-</p>
+<h1>Checkout</h1>
+<div *ngIf="empty">
+  empty as fuck
+</div>
+<div *ngIf="!empty">
+  <ul *ngFor='let robot of cart'>
+    <li>
+      <p>
+        {{ robot.key }}
+      </p>
+      <form (submit)="updateCart(robot.key, $event)">
+        <input type="text" id="{{ robot.key.split(' ').join('') }}" value="{{ robot.val }}">
+        <button type="submit" value="Submit" color="primary">Update</button>
+      </form>
+    </li>
+  </ul>
+  <button (click)="checkout()">Checkout</button>
+</div>
