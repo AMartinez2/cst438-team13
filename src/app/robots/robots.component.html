@@ -4,6 +4,7 @@
     <a routerLink="/robotDetails/{{ robot.name }}">{{ robot.name }}</a>
     <ul>
       <li><a routerLink="/robotDetails/{{ robot.name }}">${{ robot.price }}</a></li>
+	<li><a routerLink="/robotDetails/{{ robot.name }}">${{ robot.stock }} </a></li>
     </ul>
     <button (click)="addToCart(robot.name)">Add to cart</button>
   </li>
