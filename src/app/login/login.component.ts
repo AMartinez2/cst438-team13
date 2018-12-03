@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  logInFailed: boolean;
   users$: Object;
   constructor(
     private dataService: DataService,
@@ -35,6 +35,9 @@ export class LoginComponent implements OnInit {
     const target = event.target;
     const DomUn = target.querySelector('#username').value;
     const DomPw = target.querySelector('#password').value;
+    if(DomPw == " "){
+      this.logInFailed = true;
+    }
     // Check to see if given user matches user in db
     for (const usr in this.users$) {
       if (DomUn === this.users$[usr]['usid']) {
