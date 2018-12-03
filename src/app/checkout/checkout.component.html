@@ -13,6 +13,10 @@
         <button type="submit" value="Submit" color="primary">Update</button>
       </form>
     </li>
+    <button (click)="checkout()">Checkout</button>
   </ul>
-  <button (click)="checkout()">Checkout</button>
+  <ul *ngFor='let i of rob'>
+    {{ i }}
+  </ul>
+  {{ price }}
 </div>
