@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RobotsComponent } from './robots/robots.component';
 import { RobotDetailsComponent } from './robot-details/robot-details.component';
 import { LoginComponent } from './login/login.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent
+  },
+  {
+    path: 'confirmation/:message',
+    component: ConfirmationComponent
   },
   {
     path: 'robots',

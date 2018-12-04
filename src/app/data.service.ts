@@ -30,4 +30,7 @@ export class DataService {
   updateUser(userName, price) {
     return this.http.get('https://rcheckoutms.herokuapp.com/user/' + userName + '/' + price);
   }
+  checkStock(robotNames, stocks) {
+    return this.http.get('https://rcheckoutms.herokuapp.com/checkStock/' + robotNames + '/' + stocks);
+  }
 }

@@ -20,6 +20,9 @@ export class RobotDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
+    if (localStorage.getItem('USER') == null) {
+      this.router.navigate(['/login']);
+    }
     this.data.getRobot(this.robot$).subscribe(
       data => this.robot$ = data
     );

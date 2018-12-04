@@ -9,18 +9,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-    empty: Boolean;
-    cart = [];
-    checkoutError: boolean;
     price: object;
     robots$: Object;
-    rob = [];
-    constructor(public nav: NavbarService, private dataService: DataService, private router: Router) { }
+    empty: Boolean;
+    stockError: Boolean;
+    usr: Boolean;
+    robstockerror: string;
+    cart = [];
+    constructor(public nav: NavbarService,
+      private dataService: DataService,
+      private router: Router) { }
 
   ngOnInit() {
-    this.checkoutError = false;
-    this.cart = [];
     this.nav.show();
+    if (localStorage.getItem('USER') == null) {
+      this.router.navigate(['/login']);
+    }
+    this.cart = [];
+    this.usr = true;
     let li: string;
     let am: string;
     li = '';
@@ -47,37 +53,69 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  removeFromCart(robotName) {
+    localStorage.removeItem(robotName);
+    location.reload();
+  }
+
   updateCart(robotName, event) {
     const target = event.target;
     const newCount = target.querySelector('#' + robotName.split(' ').join('')).value;
+    console.log(document.getElementById(name));
+    localStorage.removeItem(robotName);
     if (newCount <= 0) {
-      localStorage.removeItem(robotName);
       return;
+    } else {
+      localStorage.setItem(robotName, newCount.toString());
     }
-    localStorage.setItem(robotName, newCount.toString());
   }
 
-  checkout() {
-    console.log('start');
+  updateRobot() {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key === 'USER') {
         continue;
       }
       const val = localStorage[key];
-      console.log(val);
-      this.dataService.updateRobot(key, val).subscribe(
-        data => {if (data) {
-            this.rob.push({key: 1});
-          } else {
-            this.rob.push({key: 0});
-          }
+      this.dataService.updateRobot(key, val).subscribe(data => {});
+    }
+  }
+
+  checkout() {
+    console.log('wow');
+    let li = '';
+    let am = '';
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key === 'USER') {
+        continue;
+      }
+      const val = localStorage.getItem(key);
+      this.cart.push({ key: key, val : val});
+      li = li + key + ',';
+      am = am + val + ',';
+    }
+    li = li.substr(0, li.length - 1);
+    am = am.substr(0, am.length - 1);
+    this.dataService.checkStock(li, am).subscribe(
+      data => {if (!data) {
+          this.router.navigate(['/confirmation/Not enough items in stock.']);
+        } else {
+          // Check user balance
+          this.dataService.updateUser(localStorage.getItem('USER'), this.price).subscribe(
+            data2 => {if (!data2) {
+                this.router.navigate(['/confirmation/You do not have enough money.']);
+              } else {
+                this.updateRobot();
+                const user = localStorage.getItem('USER');
+                localStorage.clear();
+                localStorage.setItem('USER', user);
+                this.router.navigate(['/confirmation/Purchase successful. Thank you for shopping with us.']);
+              }
+            }
+          );
         }
-      );
-    }
-    // TODO: change this logic to match the `updateRobot` logic
-    if (!this.dataService.updateUser(localStorage.getItem('USER'), this.price)) {
-    }
-    this.router.navigate(['/robots']);
+      }
+    );
   }
 }

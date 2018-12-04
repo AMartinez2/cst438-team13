@@ -1,22 +1,27 @@
 <h1>Checkout</h1>
+
 <div *ngIf="empty">
   empty as fuck
 </div>
+
 <div *ngIf="!empty">
   <ul *ngFor='let robot of cart'>
-    <li>
-      <p>
-        {{ robot.key }}
-      </p>
-      <form (submit)="updateCart(robot.key, $event)">
-        <input type="text" id="{{ robot.key.split(' ').join('') }}" value="{{ robot.val }}">
-        <button type="submit" value="Submit" color="primary">Update</button>
-      </form>
-    </li>
-    <button (click)="checkout()">Checkout</button>
+      <li>
+        <p>
+          {{ robot.key }}
+        </p>
+        <form (submit)="updateCart(robot.key, $event)">
+          <input type="text" name="in" id="{{ robot.key.split(' ').join('') }}" value="{{ robot.val }}">
+          <button type="submit" value="Submit" color="primary">Update</button>
+        </form>
+        <button (click)="removeFromCart(robot.key)">Remove From Cart</button>
+      </li>
   </ul>
-  <ul *ngFor='let i of rob'>
-    {{ i }}
-  </ul>
-  {{ price }}
 </div>
+
+<ul *ngIf="stockError">
+  {{ robstockerror }}
+</ul>
+<div *ngIf="!usr">Not enough money</div>
+{{ price }}
+<button (click)="checkout()">Checkout</button>
