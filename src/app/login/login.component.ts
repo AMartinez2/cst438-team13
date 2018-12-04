@@ -35,15 +35,18 @@ export class LoginComponent implements OnInit {
     const target = event.target;
     const DomUn = target.querySelector('#username').value;
     const DomPw = target.querySelector('#password').value;
-    if(DomPw == " "){
+    if (DomPw === '') {
       this.logInFailed = true;
     }
     // Check to see if given user matches user in db
     for (const usr in this.users$) {
-      if (DomUn === this.users$[usr]['usid']) {
+      if (DomUn.split(' ').join('') === this.users$[usr]['usid']) {
         this.router.navigate(['/robots']);
         // Store user name in local storage
         localStorage.setItem('USER', DomUn);
+      } else {
+
+        console.log('waffles');
       }
     }
   }

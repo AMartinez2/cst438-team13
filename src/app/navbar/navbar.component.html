@@ -1,6 +1,13 @@
-<div *ngIf="nav.visible">
-  <a routerLink="robots">Robots</a>
-  <br>
-  <a routerLink="checkout">Checkout</a>
-  <button (click)="logOut()">Logout</button>
-</div>
+<nav *ngIf="nav.visible" class="uk-navbar-container nav" uk-navbar>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li><a class="uk-navbar-item uk-logo" routerLink="robots">Giant Robot Shop</a></li>
+            <li><a routerLink="checkout">Checkout</a></li>
+        </ul>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li><button class="uk-button uk-button-text" (click)="logOut()">Logout</button></li>
+        </ul>
+    </div>
+</nav>

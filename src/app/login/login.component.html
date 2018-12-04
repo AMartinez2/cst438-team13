@@ -1,16 +1,59 @@
-<div class="signin-box">
-    <div class="signin-title">
-      <h1>Sign In</h1>
+<!-- Banner -->
+<div class="banner">
+  <h1 class="banner-head">
+    G.R.S.<br>
+    Shop For Giant Robots.
+  </h1>
+</div>
+<!-- Little text things -->
+<div class="l-content">
+  <div class="information pure-g">
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="l-box">
+        <h3 class="information-head">Instant payments</h3>
+        <p>
+          We keep track of your account balance, allowing us to give you instantly purchase any robot you find in our website. It's simple, fast, and easy. With our stock changing annually, you can be sure to buy the robots you want, when you want them.
+        </p>
+      </div>
     </div>
-    <p>
-      login with either username: bill, or username: temp. Password verification is not hooked up for development
-    </p>
-    <div class="signin-input">
-      <form (submit)="loginAttempt($event)">
-        <input type="text" id="username" placeholder="Username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password" placeholder="Password">
-        <button type="submit" value="Submit" color="primary">Login</button>
-      </form>
+
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="l-box">
+        <h3 class="information-head">-24/7 customer support</h3>
+        <p>
+          We offer no customer support, giving you a continued and un-interupted giant robot shopping experience. We have also not figured out the logistics of how we intend to give you the robots, so we want to make sure you can't contact us.
+        </p>
+      </div>
     </div>
-    <div *ngIf="!logInFailed"><div>
+
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="l-box">
+        <h3 class="information-head">Get started today</h3>
+        <p>
+          Our Giant Robot Shop is the one stop shop for all your giant robot needs. Whether you want something more modern, or something a little more rustic, we can satisfy all your giant robot needs. Take a look at our catalog.
+        </p>
+      </div>
+    </div>
   </div>
+</div>
+<!-- Login Area -->
+<div id="signin-b">
+  <h1 class="uk-heading-divider">Login</h1>
+  <form (submit)="loginAttempt($event)">
+    <div class="uk-margin">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: user"></span>
+        <input id="username" class="uk-input" type="text">
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <div class="uk-inline">
+        <span type="text" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+        <input type="password" id="password" class="uk-input" type="text">
+      </div>
+    </div>
+    <button type="submit" value="Submit" color="primary">Login</button>
+  </form>
+  <div *ngIf="logInFailed" class="danger uk-label uk-label-danger">Login Failed</div>
+</div>

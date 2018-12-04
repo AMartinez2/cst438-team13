@@ -1,11 +1,21 @@
-<p>
-  {{ robot$['name'] }}
-<br>
-  ${{ robot$['price'] }}
-<br>
-  {{ robot$['photo'] }}
-</p>
-<form (submit)="updateCart(robot$['name'], $event)">
-    <input type="text" id="amount" value='1'>
-    <button type="submit" value="Submit" color="primary">Add to cart</button>
-</form>
+<div id="container">
+  <div id="details-container">
+    <div id="details-img">
+      <img class="pure-img" src="{{ robot$['photo'] }}" alt="{{robot$['name']}}-img">
+    </div>
+    <div id="details">
+      <p>
+        {{ robot$['name'] }}
+      </p>
+      <p>
+        Stock: ${{ robot$['price'] }}
+      <p>
+      <form class="pure-form pure-form-stacked" (submit)="updateCart(robot$['name'], $event)">
+        <fieldset>
+          <input type="text" id="amount" value='1'><br>
+          <button class="pure-button pure-button-primary" type="submit" value="Submit">Add to cart</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
