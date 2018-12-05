@@ -7,9 +7,19 @@
       <p>
         {{ robot$['name'] }}
       </p>
+      <p>Price: ${{ robot$['price'] }}</p>
       <p>
-        Stock: ${{ robot$['price'] }}
+        Height: {{ robot$['height'] }}
+      </p>
       <p>
+        Stock: {{ robot$['price'] }}
+      </p>
+        <p>
+          Powers: 
+      <span *ngFor = "let item of robot$['powers']">
+        {{item}}, 
+      </span>
+      </p>
       <form class="pure-form pure-form-stacked" (submit)="updateCart(robot$['name'], $event)">
         <fieldset>
           <input type="text" id="amount" value='1'><br>
