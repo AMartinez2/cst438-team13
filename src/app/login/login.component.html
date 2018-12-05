@@ -1,3 +1,4 @@
+<h1 class="uk-heading-line uk-text-center uk-heading-primary"><span>Giant Robot Shop</span></h1>
 <!-- Banner -->
 <div class="banner">
   <h1 class="banner-head">
@@ -38,7 +39,8 @@
 </div>
 <!-- Login Area -->
 <div id="signin-b">
-  <h1 class="uk-heading-divider">Login</h1>
+  <h1 class="uk-heading-divider">Login to begin shopping.</h1>
+  <div *ngIf="logInFailed" class="danger uk-label uk-label-danger">Login Failed</div>
   <form (submit)="loginAttempt($event)">
     <div class="uk-margin">
       <div class="uk-inline">
@@ -46,14 +48,12 @@
         <input id="username" class="uk-input" type="text">
       </div>
     </div>
-
     <div class="uk-margin">
       <div class="uk-inline">
         <span type="text" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-        <input type="password" id="password" class="uk-input" type="text">
+        <input type="password" id="password" class="uk-input">
       </div>
     </div>
     <button type="submit" value="Submit" color="primary">Login</button>
   </form>
-  <div *ngIf="logInFailed" class="danger uk-label uk-label-danger">Login Failed</div>
 </div>

@@ -82,7 +82,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   checkout() {
-    console.log('wow');
     let li = '';
     let am = '';
     for (let i = 0; i < localStorage.length; i++) {
@@ -97,6 +96,7 @@ export class CheckoutComponent implements OnInit {
     }
     li = li.substr(0, li.length - 1);
     am = am.substr(0, am.length - 1);
+    this.cart = [];
     this.dataService.checkStock(li, am).subscribe(
       data => {if (!data) {
           this.router.navigate(['/confirmation/Not enough items in stock.']);

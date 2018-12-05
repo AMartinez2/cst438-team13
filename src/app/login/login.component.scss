@@ -29,6 +29,10 @@ form {
   margin-right: auto;
 }
 
+.danger {
+  margin-bottom: 10px;
+}
+
 /*
 * -- Layout Styles --
 */
@@ -61,10 +65,12 @@ form {
 */
 
 .banner {
-  background: transparent url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-657451.jpg') 0 0 no-repeat fixed;
+  // background: transparent url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-657451.jpg') 0 0 no-repeat fixed;
+  background: transparent url('https://farm3.staticflickr.com/2512/3755252262_018f20637a_b.jpg') 0 0 no-repeat fixed;
+
   text-align: center;
   background-size: cover;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-657451.jpg', sizingMethod='scale');
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://farm3.staticflickr.com/2512/3755252262_018f20637a_b.jpg', sizingMethod='scale');
 
   height: 200px;
   width: 100%;

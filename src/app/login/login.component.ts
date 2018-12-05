@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('USER') != null) {
+      this.router.navigate(['/robots']);
+    }
   }
 
   loginAttempt(event) {
