@@ -22,5 +22,7 @@
 <ul *ngIf="stockError">
   {{ robstockerror }}
 </ul>
-{{ price }}
+<p>
+  Total price: ${{ price }}
+</p>
 <button (click)="checkout()">Checkout</button>
