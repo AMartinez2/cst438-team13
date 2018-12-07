@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(localStorage.getItem('USERC'));
     if (localStorage.getItem('USER') != null) {
       this.router.navigate(['/robots']);
     }
@@ -44,12 +45,15 @@ export class LoginComponent implements OnInit {
     // Check to see if given user matches user in db
     for (const usr in this.users$) {
       if (DomUn.split(' ').join('') === this.users$[usr]['usid']) {
-        this.router.navigate(['/robots']);
+        console.log('login success');
         // Store user name in local storage
         localStorage.setItem('USER', DomUn);
+        localStorage.setItem('USERC', this.users$[usr]['balance']);
+        console.log(this.users$[usr]['balance']);
+        this.router.navigate(['/robots']);
+        break;
       } else {
-
-        console.log('waffles');
+        console.log('login failed');
       }
     }
   }

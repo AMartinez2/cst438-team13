@@ -15,6 +15,7 @@ export class CheckoutComponent implements OnInit {
     stockError: Boolean;
     usr: Boolean;
     robstockerror: string;
+    balance: String;
     cart = [];
     constructor(public nav: NavbarService,
       private dataService: DataService,
@@ -25,6 +26,8 @@ export class CheckoutComponent implements OnInit {
     if (localStorage.getItem('USER') == null) {
       this.router.navigate(['/login']);
     }
+    console.log(localStorage.getItem('USERC'));
+    this.balance = localStorage.getItem('USERC');
     this.cart = [];
     this.usr = true;
     let li: string;
@@ -33,7 +36,7 @@ export class CheckoutComponent implements OnInit {
     am = '';
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key === 'USER') {
+      if (key === 'USER' || key === 'USERC') {
         continue;
       }
       const val = localStorage.getItem(key);
@@ -73,7 +76,7 @@ export class CheckoutComponent implements OnInit {
   updateRobot() {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key === 'USER') {
+      if (key === 'USER' || key === 'USERC') {
         continue;
       }
       const val = localStorage[key];
@@ -86,7 +89,7 @@ export class CheckoutComponent implements OnInit {
     let am = '';
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key === 'USER') {
+      if (key === 'USER' || key === 'USERC') {
         continue;
       }
       const val = localStorage.getItem(key);
@@ -109,6 +112,7 @@ export class CheckoutComponent implements OnInit {
                 this.updateRobot();
                 const user = localStorage.getItem('USER');
                 localStorage.clear();
+                localStorage.setItem('USERC', data2['balance']);
                 localStorage.setItem('USER', user);
                 this.router.navigate(['/confirmation/Purchase successful. Thank you for shopping with us.']);
               }
