@@ -5,23 +5,23 @@
           <img class="pure-img" src="{{ robot$['photo'] }}" alt="{{robot$['name']}}-img">
         </div>
         <div id="details">
-          <h2 id ="name">
-            {{ robot$['name'] }}
-          </h2>
           <p>
-            <strong>Height: </strong>{{ robot$['height'] }} ft.
+            {{ robot$['name'] }}
           </p>
-          <div id = "powers">
-            <strong>Powers:</strong>
-            <span *ngFor = "let power of robot$['powers']" class = "power">
-              <br>-  {{ power }}
+          <p>
+            Stock: {{robot$['stock']}}
+          </p>
+          <p>
+            Powers:
+            <span *ngFor = "let power of robot$['powers']">
+              {{ power }},
             </span>
-          </div>
-          <p id ="stock">
-              <strong>Stock: </strong>{{robot$['stock']}}
-            </p>
-          <p id = "price">
-            <strong>Price: </strong>${{ robot$['price'] }}
+          </p>
+          <p>
+            ${{ robot$['price'] }}
+          </p>
+          <p>
+            height: {{ robot$['height'] }} ft.
           </p>
           <form class="pure-form pure-form-stacked" (submit)="updateCart(robot$['name'], $event)">
             <fieldset>

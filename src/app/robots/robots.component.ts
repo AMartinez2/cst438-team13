@@ -13,6 +13,7 @@ export class RobotsComponent implements OnInit {
 
   robots$: Object;
   cart = [];
+  balance: string;
 
   constructor(
     private rdataService: DataService,
