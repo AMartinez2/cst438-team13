@@ -16,6 +16,7 @@ export class ConfirmationComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(localStorage.getItem('USERC'));
     this.nav.show();
     if (localStorage.getItem('USER') == null) {
       this.router.navigate(['/login']);
