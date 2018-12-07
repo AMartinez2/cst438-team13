@@ -18,7 +18,7 @@ export class RobotsComponent implements OnInit {
   constructor(
     private rdataService: DataService,
     private router: Router,
-    public nav: NavbarService) { this.balance = localStorage.getItem('balance')}
+    public nav: NavbarService) { }
 
   ngOnInit() {
     console.log(localStorage.getItem('USERC'));
