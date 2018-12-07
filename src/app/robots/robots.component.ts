@@ -13,11 +13,12 @@ export class RobotsComponent implements OnInit {
 
   robots$: Object;
   cart = [];
+  balance: string;
 
   constructor(
     private rdataService: DataService,
     private router: Router,
-    public nav: NavbarService) { }
+    public nav: NavbarService) { this.balance = localStorage.getItem('balance')}
 
   ngOnInit() {
     console.log(localStorage.getItem('USERC'));
