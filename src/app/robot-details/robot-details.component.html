@@ -5,18 +5,23 @@
           <img class="pure-img" src="{{ robot$['photo'] }}" alt="{{robot$['name']}}-img">
         </div>
         <div id="details">
-          <p>
+          <h2 id ="name">
             {{ robot$['name'] }}
-          </p>
+          </h2>
           <p>
-            Stock: {{robot$['stock']}}
+            <strong>Height: </strong>{{ robot$['height'] }} ft.
           </p>
-          <p>
-            Powers:
-            <span *ngFor = "let power of robot$['powers']">
-              {{ power }},
-            </span>
+          <div id = "powers">
+              <strong>Powers:</strong>
+              <span *ngFor = "let power of robot$['powers']" class = "power">
+                <br>-  {{ power }}
+              </span>
+          </div>
+          <p id ="stock">
+            <strong>Stock: </strong>{{robot$['stock']}}
           </p>
+          <p id = "price">
+            <strong>Price: </strong>${{ robot$['price'] }}
           <p>
             ${{ robot$['price'] }}
           </p>
