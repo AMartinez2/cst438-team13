@@ -21,7 +21,7 @@ export class RobotsComponent implements OnInit {
     public nav: NavbarService) { }
 
   ngOnInit() {
-    console.log(localStorage.getItem('USERC'));
+    this.balance = localStorage.getItem('USERC');
     this.nav.show();
     if (localStorage.getItem('USER') == null) {
       this.router.navigate(['/login']);

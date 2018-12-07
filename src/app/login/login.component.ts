@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
         console.log('login success');
         // Store user name in local storage
         localStorage.setItem('USER', DomUn);
-        localStorage.setItem('balance', this.users$[usr]['balance']);
         localStorage.setItem('USERC', this.users$[usr]['balance']);
         console.log(this.users$[usr]['balance']);
         this.router.navigate(['/robots']);
