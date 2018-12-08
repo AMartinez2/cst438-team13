@@ -1,5 +1,11 @@
 # Grader information
 
+Login with 'bill' as username for a user with a lot of money.
+
+Login with 'temp' as username for user with little money.
+
+Password does not matter.
+
 ### Robot microservice repo and deployment
 * [https://github.com/AMartinez2/robotms](https://github.com/AMartinez2/robotms)
 * [https://robot-ms.herokuapp.com/](https://robot-ms.herokuapp.com/)
